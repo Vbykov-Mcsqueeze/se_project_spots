@@ -15,11 +15,18 @@
     padding-bottom: 40px;
 }
 
+@media screen and (max-width: 880px) {
+    .cards__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
 @media screen and (max-width: 627px) {
     .cards {
         max-width: 288px;
     }
-
 
     .cards__list {
         display: flex;
@@ -29,3 +36,4 @@
         gap: 20px;
     }
 }
+

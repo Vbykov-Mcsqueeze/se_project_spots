@@ -20,6 +20,7 @@
     border: none;
     opacity: 40%;
     margin-top: 12px;
+    background-color: #fcf5e5;
 }
 
 .card__title {
@@ -28,12 +29,9 @@
     margin: 12px 0 0;
     padding-bottom: 2px;
     line-height: 24px;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 627px) {
@@ -46,7 +44,7 @@
         font-size: 16px;
         margin-bottom: 0;
         line-height: 16px;
-        max-width: 100%;
+        max-width: 265px;
     }
 
     .card__like-btn {

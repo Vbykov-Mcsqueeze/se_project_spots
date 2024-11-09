@@ -78,6 +78,12 @@
     height: 12px;
 }
 
+@media screen and (max-width: 880px) {
+    .profile__edit-btn { 
+        padding-top: 114px;
+    }
+}
+
 @media screen and (max-width: 627px) {
     .profile {
         flex-direction: column;
@@ -93,7 +99,6 @@
     }
 
     .profile__name {
-        max-width: 288px;
         font-size: 20px;
         margin: 0 0 6px;
     }
@@ -101,7 +106,6 @@
     .profile__description {
         margin: 0 0 32px;
         font-size: 16px;
-        max-width: 288px;
     }
 
     .profile__column {
@@ -112,7 +116,7 @@
     .profile__edit-btn {
         display: flex;
         justify-content: center;
-        margin-top: 0;
+        padding-top: 0;
     }
 
     .profile__add-btn {
