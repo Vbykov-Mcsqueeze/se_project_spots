@@ -8,7 +8,7 @@
 .profile__avatar {
     height: 190px;
     width: 190px;
-    object-fit: 100%;
+    object-fit: cover;
     display: block;
     border-radius: 8px;
     margin-right: 20px;
@@ -24,7 +24,7 @@
     font-weight: 500;
     font-size: 32px;
     line-height: 32px;
-    width: 420px;
+    max-width: 420px;
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
@@ -38,6 +38,7 @@
     opacity: 70%;
     line-height: 16px;
     font-size: 16px;
+    max-width: 420px;
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
@@ -56,6 +57,12 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 16px;
+    cursor: pointer;
+    margin-top: 0 auto;
+}
+
+.profile__edit-btn:hover {
+    color: #2600ff;
 }
 
 .profile__add-btn {
@@ -71,6 +78,11 @@
     align-items: center;
     gap: 8px;
     padding: 0 24px;
+    cursor: pointer;
+}
+
+.profile__add-btn:hover {
+    color: #fff;
 }
 
 .profile__plus-btn {
