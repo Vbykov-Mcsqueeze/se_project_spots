@@ -16,3 +16,12 @@ This is the third project of the Software Engineering program at TripleTen. It w
 ## Plan on improving the project
 
 ## System Requirments
+
+## Github link
+
+- git@github.com:Vbykov-Mcsqueeze/se_project_spots.git
+
+## Video link
+
+https://drive.google.com/file/d/1MM9FtUi1hunjsiXE1xtfOcFTycdjsPcV/view?usp=drive_link
+

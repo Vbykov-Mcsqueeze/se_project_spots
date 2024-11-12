@@ -58,11 +58,11 @@
     font-size: 16px;
     line-height: 16px;
     cursor: pointer;
-    margin-top: 0 auto;
+    margin-top: auto;
 }
 
 .profile__edit-btn:hover {
-    color: #2600ff;
+    opacity: 1;
 }
 
 .profile__add-btn {
@@ -82,7 +82,7 @@
 }
 
 .profile__add-btn:hover {
-    color: #fff;
+    opacity: 0.8;
 }
 
 .profile__plus-btn {
@@ -111,6 +111,7 @@
     }
 
     .profile__name {
+        line-height: 20px;
         font-size: 20px;
         margin: 0 0 6px;
     }
