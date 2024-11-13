@@ -19,7 +19,7 @@ This is the third project of the Software Engineering program at TripleTen. It w
 
 ## Github link
 
-- git@github.com:Vbykov-Mcsqueeze/se_project_spots.git
+https://github.com/Vbykov-Mcsqueeze/se_project_spots
 
 ## Video link
 
