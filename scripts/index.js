@@ -1,27 +1,33 @@
 const initialCards = [
     {
       name: "Val Thorens",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+      alt: "Val"
     },
     {
       name: "Restaurant terrace",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+      alt: "Restaurant"
     },
     {
       name: "An outdoor cafe",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+      alt: "Cafe"
     },
     {
       name: "A very long bridge, over the forest and through the trees",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+      alt: "Bridge"
     },
     {
       name: "Tunnel with morning light",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+      alt: "Tunnel"
     },
     {
       name: "Mountain house",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+      alt: "House"
     }
   ];
 
@@ -49,13 +55,21 @@ cardNameEl.textContent = data.name;
 const cardImageEl = cardElement.querySelector(".card__image")
 cardImageEl.src = data.link;
 
+cardImageEl.alt = data.alt;
+
   return cardElement;
 }
 
 function openModal() {
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
+  fillProfileForm(editModalNameInput, profileName.textContent);
+  fillProfileForm(editModalDescriptionInput, profileDescription.textContent);
+  //editModalNameInput.value = profileName.textContent;
+  //editModalDescriptionInput.value = profileDescription.textContent;
   editModal.classList.add("modal_opened");
+}
+
+function fillProfileForm(modal, textContent) {
+  modal.value = textContent;
 }
 
 function closeModal() {
