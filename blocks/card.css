@@ -5,6 +5,7 @@
     display: block;
     border-radius: 8px;
     position: relative;
+    cursor: pointer;
 }
 
 .card__content {
@@ -76,7 +77,6 @@
 .card__footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 @media screen and (max-width: 627px) {
@@ -89,7 +89,7 @@
         font-size: 16px;
         margin-bottom: 0;
         line-height: 16px;
-        max-width: 265px;
+        max-width: 235px;
     }
 
     .card__like-btn {
