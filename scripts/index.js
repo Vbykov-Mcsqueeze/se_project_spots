@@ -1,3 +1,12 @@
+const settings = {
+  formSelector: ".modalform",
+  inputSelector: ".modalinput",
+  submitButtonSelector: ".modalsubmit-btn",
+  inactiveButtonClass: "modalsubmit-btn_disabled",
+  inputErrorClass: "modalinput_type_error",
+  errorClass: "modalerror_visible"
+  };
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -52,6 +61,7 @@ const editModalDescriptionInput = editModal.querySelector("#profile-description-
 // Card Elements
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn")
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -68,15 +78,13 @@ const cardsList = document.querySelector(".cards__list");
 const cardElement = cardTemplate.content;
 
 function handleAddCardSubmit(item, method = "prepend") {
-
-  // TODO - make image appear when adding card
   const cardEl = getCardElement(item);
-
-  // TODO - make sure card appears at top of the list
   cardsList[ method ](cardEl);
-
-  // TODO - Close the modal
+  disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
+  setTimeout(() => {
+    cardForm.reset();
+  }, 100);
 }
 
 function getCardElement(data) {
@@ -86,14 +94,10 @@ function getCardElement(data) {
 
   const cardLikeBtn = element.querySelector(".card__like-btn");
 
-  //select the element
-  //add the event listener
   cardLikeBtn.addEventListener("click", () => {
-    // write code that handles the event
     cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
 
-  // TODO - select the delete button
   const cardDeleteBtn = element.querySelector(".card__delete-btn");
   cardDeleteBtn.addEventListener("click", () => {
     element.remove();
@@ -110,9 +114,6 @@ function getCardElement(data) {
     previewModalCaptionEl.textContent = data.name;
   });
 
-  // TODO - set the listener on delete button
-  // The handler should remove the card from the DOM
-
   return element;
 }
 
@@ -123,10 +124,12 @@ function fillProfileForm() {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalOnEscape); // add
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalOnEscape); // remove
 }
 
 function handleEditFormSubmit(evt) {
@@ -134,6 +137,27 @@ function handleEditFormSubmit(evt) {
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
+}
+
+function closeModalOnOverlayClick(evt) {
+  if (evt.target === evt.currentTarget) {
+      closeModal(evt.target);
+  }
+ }
+
+ const allModals = document.querySelectorAll(".modal")
+
+ allModals.forEach((modal) => {
+  modal.addEventListener("click", closeModalOnOverlayClick);
+});
+
+function closeModalOnEscape(evt) {
+  if (evt.key === 'Escape') {
+      const openModal = document.querySelector('.modal_opened');
+      if (openModal) {
+          closeModal(openModal);
+      }
+  }
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -146,11 +170,8 @@ cardModalBtn.addEventListener("click", () => {
 });
 
 const closeButtons = document.querySelectorAll('.modal__close-btn');
-
 closeButtons.forEach((button) => {
-  // Find the closest popup only once
   const modal = button.closest('.modal');
-  // Set the listener
   button.addEventListener('click', () => closeModal(modal));
 });
 
@@ -162,12 +183,9 @@ cardForm.addEventListener("submit", function(evt) {
   evt.target.reset();
 }); 
 
-// for (let i = 0; i < initialCards.length; i++) {
-//   const cardElement = getCardElement(initialCards[i]);
-//   cardsList.prepend(cardElement)
-// }
-
 initialCards.forEach((item, i, arr) => {
   const card = getCardElement(item);
   cardsList.prepend(card);
 });
+
+enableValidation(settings);
