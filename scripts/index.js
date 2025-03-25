@@ -1,10 +1,10 @@
 const settings = {
-  formSelector: ".modalform",
-  inputSelector: ".modalinput",
-  submitButtonSelector: ".modalsubmit-btn",
-  inactiveButtonClass: "modalsubmit-btn_disabled",
-  inputErrorClass: "modalinput_type_error",
-  errorClass: "modalerror_visible"
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible"
   };
 
 const initialCards = [

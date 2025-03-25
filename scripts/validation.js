@@ -1,12 +1,12 @@
 const showInputError = (formEl, inputEl, errorMsg, settings) => {
-    const errorMsgEl = formEl.querySelector(#${inputEl.id}-error);
+    const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
     errorMsgEl.textContent = errorMsg;
     inputEl.classList.add(settings.inputErrorClass);
     errorMsgEl.classList.add(settings.errorClass);
 };
 
 const hideInputError = (formEl, inputEl, settings) => {
-    const errorMsgEl = formEl.querySelector(#${inputEl.id}-error);
+    const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
     errorMsgEl.textContent = "";
     inputEl.classList.remove(settings.inputErrorClass);
     errorMsgEl.classList.remove(settings.errorClass); 
@@ -56,7 +56,7 @@ const setEventListeners = (formEl, config) => {
 
         toggleButtonState(inputList, buttonElement, config);
 
-    editFormElement.addEventListener("reset", () => {
+        formEl.addEventListener("reset", () => {
         disableButton(buttonElement, config);
     });
 
