@@ -60,8 +60,8 @@ const editModalDescriptionInput = editModal.querySelector("#profile-description-
 
 // Card Elements
 const cardModal = document.querySelector("#add-card-modal");
-const cardForm = cardModal.querySelector(".modal__form");
-const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn")
+const cardForm = document.forms[0];
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -161,6 +161,7 @@ function closeModalOnEscape(evt) {
 }
 
 profileEditButton.addEventListener("click", () => {
+  resetValidation(editFormElement, settings)
   fillProfileForm();
   openModal(editModal);
 });
